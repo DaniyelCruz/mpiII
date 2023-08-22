@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivadas Parciales - Página de Matemáticas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #35424a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #35424a;
+        }
+        p {
+            color: #666;
+        }
+        .button {
+            display: inline-block;
+            background-color: #35424a;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #1f2c32;
+        }
+        .hidden-content {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleContent(contentId) {
+            var content = document.getElementById(contentId);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Transformada de Laplace</h2>
+        </div>
+        
+        <div class="content">
+            <h2>Definición y Fórmula de la Transformada de Laplace</h2>
+            <p>La definición y la fórmula de la transformada de Laplace son fundamentales para comprender cómo esta técnica matemática transforma funciones del dominio del tiempo al dominio de la frecuencia. Esta fórmula integral es clave para el análisis y la resolución de problemas en sistemas dinámicos.</p>
+            <button class="button" onclick="toggleContent('laplace_formula_content')">Explorar más</button>
+            <div class="hidden-content" id="laplace_formula_content">
+                <p>La fórmula integral de la transformada de Laplace es:</p>
+                <p>\( F(s) = \mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st} f(t) dt \)</p>
+                <p>Donde \( s \) es un número complejo, \( t \) es el tiempo y \( F(s) \) es la transformada de Laplace de \( f(t) \).</p>
+                <p>En esta fórmula, el parámetro \( s \) tiene un papel crucial. Representa una variable compleja que determina cómo las frecuencias en la función original se mapean al dominio de la frecuencia. El valor de \( s \) influye en cómo se atenúan o amplifican las distintas componentes de frecuencia en la función transformada.</p>
+                <p>El parámetro \( t \) representa el tiempo y se encuentra en el exponente de la función exponencial \( e^{-st} \). A medida que \( t \) varía, la exponencial cambia, lo que a su vez afecta cómo la función original se transforma en el dominio de la frecuencia.</p>
+                <p>La transformada de Laplace de funciones comunes es un área importante. Por ejemplo, la transformada del escalón unitario (\( u(t) \)), la función impulso (\( \delta(t) \)) y las exponenciales (\( e^{at} \)) son fundamentales. Estas transformadas son utilizadas como bloques de construcción para analizar y sintetizar funciones más complejas en el dominio de la frecuencia.</p>
+                <p>El estudio de las transformadas de funciones comunes nos permite comprender cómo diferentes tipos de señales se comportan en el dominio de la frecuencia y cómo influyen en la respuesta de sistemas a lo largo del tiempo.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Propiedades de la Transformada de Laplace</h2>
+            <p>Las propiedades de la transformada de Laplace son esenciales para manipular y analizar funciones en el dominio de la frecuencia, lo que facilita la resolución de problemas en sistemas dinámicos.</p>
+            <button class="button" onclick="toggleContent('laplace_properties_content')">Explorar más</button>
+            <div class="hidden-content" id="laplace_properties_content">
+                <h3>Linealidad y Superposición</h3>
+                <p>Una de las propiedades clave de la transformada de Laplace es su linealidad. Esto significa que la transformada de una combinación lineal de funciones es igual a la combinación lineal de las transformadas individuales de esas funciones. Esta propiedad permite analizar sistemas complejos dividiéndolos en partes más manejables y luego combinando las soluciones.</p>
+                
+                <h3>Propiedades de Desplazamiento en el Tiempo</h3>
+                <p>La transformada de Laplace de una función desplazada en el tiempo se relaciona con la transformada de la función original. El desplazamiento en el dominio del tiempo se traduce en una multiplicación por un término exponencial complejo en el dominio de la frecuencia. Esto permite analizar cómo las funciones cambian cuando se retrasan o se adelantan en el tiempo.</p>
+                
+                <h3>Propiedades de Derivación e Integración en el Tiempo</h3>
+                <p>La derivación en el dominio del tiempo se relaciona con la multiplicación por \( s \) en el dominio de la frecuencia. La integración en el dominio del tiempo se relaciona con la división por \( s \) en el dominio de la frecuencia. Estas propiedades son fundamentales para transformar ecuaciones diferenciales en ecuaciones algebraicas, simplificando su resolución.</p>
+                
+                <h3>Teorema de la Convolución y Multiplicación en el Dominio de la Frecuencia</h3>
+                <p>El teorema de la convolución establece que la convolución en el dominio del tiempo se convierte en una multiplicación en el dominio de la frecuencia. Esto simplifica el análisis de sistemas lineales e invariantes en el tiempo. Además, la multiplicación de dos transformadas en el dominio de la frecuencia corresponde a la convolución en el dominio del tiempo.</p>
+                
+                <p>Estas propiedades hacen que la transformada de Laplace sea una herramienta poderosa para resolver ecuaciones diferenciales, analizar sistemas dinámicos y estudiar cómo las señales evolucionan en el tiempo y la frecuencia.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Transformada de Laplace de Ecuaciones Diferenciales</h2>
+            <p>La aplicación de la transformada de Laplace a ecuaciones diferenciales es una herramienta poderosa para resolver y analizar sistemas dinámicos complejos, especialmente cuando las ecuaciones diferenciales son difíciles de tratar en el dominio del tiempo.</p>
+            <button class="button" onclick="toggleContent('laplace_equations_content')">Explorar más</button>
+            <div class="hidden-content" id="laplace_equations_content">
+                <h3>Transformación de Ecuaciones Diferenciales Ordinarias</h3>
+                <p>La transformada de Laplace permite transformar ecuaciones diferenciales ordinarias en ecuaciones algebraicas en el dominio de la frecuencia. Esto simplifica el proceso de resolución, ya que muchas veces es más fácil manipular ecuaciones algebraicas que ecuaciones diferenciales. Después de resolver la ecuación algebraica resultante, es posible encontrar la solución en el dominio del tiempo aplicando la transformada inversa de Laplace.</p>
+                
+                <h3>Solución de Ecuaciones Diferenciales Lineales en el Dominio de la Frecuencia</h3>
+                <p>Para ecuaciones diferenciales lineales con coeficientes constantes, la transformada de Laplace se convierte en una herramienta eficaz. Las derivadas en el dominio del tiempo se convierten en multiplicaciones por \( s \) en el dominio de la frecuencia. Resolver una ecuación diferencial en el dominio de la frecuencia implica una manipulación algebraica directa, y luego se aplica la transformada inversa para obtener la solución en el dominio del tiempo.</p>
+                
+                <h3>Relación entre las Soluciones en el Dominio del Tiempo y de la Frecuencia</h3>
+                <p>La relación entre las soluciones en el dominio del tiempo y de la frecuencia es fundamental. La transformada de Laplace no solo proporciona la solución en el dominio de la frecuencia, sino que también facilita la identificación de modos de comportamiento en el dominio del tiempo. La forma de la función transformada y su ubicación en el plano \( s \) permiten deducir cómo la solución en el dominio del tiempo evoluciona con el tiempo.</p>
+                
+                <p>En resumen, la transformada de Laplace es una valiosa herramienta para resolver ecuaciones diferenciales y analizar sistemas dinámicos en situaciones donde el análisis directo en el dominio del tiempo puede ser complicado. La transformación al dominio de la frecuencia y la posterior transformación inversa proporcionan una visión más clara y manejable de la evolución de sistemas complejos.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Aplicaciones en Ingeniería y Física</h2>
+            <p>La transformada de Laplace tiene una amplia gama de aplicaciones en los campos de la ingeniería y la física, donde se utiliza para analizar y resolver problemas en sistemas dinámicos complejos. Su capacidad para transformar ecuaciones diferenciales en problemas más manejables en el dominio de la frecuencia hace que sea una herramienta esencial en diversos contextos.</p>
+            <button class="button" onclick="toggleContent('laplace_applications_content')">Explorar más</button>
+            <div class="hidden-content" id="laplace_applications_content">
+                <h3>Análisis de Sistemas Eléctricos y Circuitos</h3>
+                <p>En la ingeniería eléctrica, la transformada de Laplace se aplica para analizar sistemas eléctricos y circuitos complejos. Permite transformar ecuaciones diferenciales que describen la respuesta de circuitos a señales de entrada en ecuaciones algebraicas en el dominio de la frecuencia. Esto facilita el estudio de la respuesta transitoria y en estado estable de circuitos, así como la determinación de la respuesta a diferentes tipos de señales.</p>
+                
+                <h3>Diseño de Sistemas de Control Automático</h3>
+                <p>En el diseño de sistemas de control automático, la transformada de Laplace es esencial para analizar y diseñar sistemas de control en el dominio de la frecuencia. Permite modelar y analizar la respuesta de sistemas de control a diferentes tipos de entradas y perturbaciones. Esto es crucial para ajustar los controladores y garantizar un comportamiento estable y deseado del sistema en la vida real.</p>
+                
+                <h3>Modelado de Sistemas Mecánicos y Vibraciones</h3>
+                <p>En la ingeniería mecánica, la transformada de Laplace se utiliza para modelar sistemas mecánicos y analizar vibraciones. Permite estudiar la respuesta de sistemas mecánicos a fuerzas y perturbaciones en el dominio de la frecuencia. Esto es valioso para el diseño de estructuras resistentes y la comprensión de cómo los sistemas mecánicos reaccionan a diferentes condiciones.</p>
+                
+                <h3>Estudio de Sistemas de Comunicación y Telecomunicaciones</h3>
+                <p>En los sistemas de comunicación y telecomunicaciones, la transformada de Laplace se aplica para analizar la transmisión de señales y la respuesta de los sistemas a perturbaciones y ruido. Permite estudiar cómo las señales se atenúan o amplifican y cómo se comportan en diferentes frecuencias. Esto es fundamental para el diseño y optimización de sistemas de comunicación eficientes y confiables.</p>
+                
+                <p>En resumen, la transformada de Laplace desempeña un papel esencial en la ingeniería y la física al proporcionar una herramienta poderosa para analizar y resolver problemas en sistemas dinámicos en una variedad de aplicaciones. Su capacidad para simplificar la resolución de ecuaciones diferenciales en el dominio de la frecuencia hace que sea un recurso invaluable para los ingenieros y científicos en la resolución de problemas prácticos y teóricos.</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h2>Transformada Inversa de Laplace</h2>
+            <p>La transformada inversa de Laplace es una operación que permite obtener una función en el dominio del tiempo a partir de su correspondiente función en el dominio de la frecuencia. Esta operación es esencial para volver a la representación original de una función después de haberla transformado utilizando la transformada de Laplace.</p>
+            <button class="button" onclick="toggleContent('laplace_inverse_transform_content')">Explorar más</button>
+            <div class="hidden-content" id="laplace_inverse_transform_content">
+                <h3>Definición y Motivación</h3>
+                <p>La transformada inversa de Laplace se denota como \( \mathcal{L}^{-1} \) y se define como:</p>
+                <p>\( \mathcal{L}^{-1} \{ F(s) \} = f(t) = \frac{1}{2\pi j} \int_{c-j\infty}^{c+j\infty} e^{st} F(s) ds \)</p>
+                <p>Donde \( F(s) \) es una función en el dominio de la frecuencia, \( f(t) \) es su transformada inversa en el dominio del tiempo, \( j \) es la unidad imaginaria, y la integral se toma a lo largo de una línea vertical en el plano complejo, generalmente a una distancia \( c \) a la derecha del eje imaginario.</p>
+                
+                <h3>Métodos para Encontrar la Transformada Inversa</h3>
+                <p>Encontrar la transformada inversa de Laplace puede involucrar técnicas como la descomposición en fracciones parciales, el uso de tablas de transformadas inversas, y la identificación de propiedades conocidas en el dominio del tiempo. El cálculo puede ser complejo en algunos casos, y se pueden requerir métodos avanzados para encontrar la función en el dominio del tiempo a partir de su representación en el dominio de la frecuencia.</p>
+                
+                <h3>Relación entre la Transformada y la Transformada Inversa</h3>
+                <p>La transformada y la transformada inversa de Laplace están relacionadas en el sentido de que una transformación lleva una función del dominio del tiempo al dominio de la frecuencia, y la otra transformación invierte este proceso, devolviendo la función original al dominio del tiempo. Ambas operaciones son fundamentales para analizar y resolver problemas en sistemas dinámicos, ya que permiten moverse entre diferentes representaciones matemáticas para simplificar los cálculos y el análisis.</p>
+                
+                <p>En resumen, la transformada inversa de Laplace es una herramienta esencial para revertir el proceso de transformación en el dominio de la frecuencia y obtener la función original en el dominio del tiempo. Los métodos para encontrar la transformada inversa pueden variar en complejidad, y su relación con la transformada de Laplace completa un conjunto de herramientas poderosas para el análisis de sistemas dinámicos en ingeniería y física.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Resolución de Problemas Utilizando la Transformada de Laplace</h2>
+            <p>La transformada de Laplace es una herramienta poderosa para resolver una variedad de problemas en ingeniería, física y otras disciplinas. Su capacidad para convertir ecuaciones diferenciales en ecuaciones algebraicas en el dominio de la frecuencia simplifica el análisis y resolución de sistemas dinámicos complejos.</p>
+            <button class="button" onclick="toggleContent('laplace_problem_solving_content')">Explorar más</button>
+            <div class="hidden-content" id="laplace_problem_solving_content">
+                <h3>Pasos para Resolver Problemas con la Transformada de Laplace</h3>
+                <ol>
+                    <li>Planteamiento del problema: Comprender el problema y establecer las ecuaciones diferenciales que lo describen en el dominio del tiempo.</li>
+                    <li>Aplicación de la Transformada de Laplace: Aplicar la transformada de Laplace a ambas partes de las ecuaciones diferenciales.</li>
+                    <li>Manipulación Algebraica: Resolver la ecuación algebraica resultante en el dominio de la frecuencia para obtener la función transformada.</li>
+                    <li>Transformada Inversa: Aplicar la transformada inversa de Laplace para obtener la solución en el dominio del tiempo.</li>
+                    <li>Análisis y Interpretación: Analizar la solución obtenida y relacionarla con el problema original en el dominio del tiempo.</li>
+                </ol>
+                
+                <h3>Ejemplos de Aplicación en Problemas Reales</h3>
+                <p>La transformada de Laplace se utiliza en una variedad de problemas en ingeniería y física. Por ejemplo:</p>
+                <ul>
+                    <li>En sistemas eléctricos y circuitos, se puede analizar la respuesta de un circuito a una entrada en el dominio del tiempo.</li>
+                    <li>En el diseño de sistemas de control automático, se pueden modelar sistemas dinámicos y analizar su estabilidad y comportamiento.</li>
+                    <li>En el modelado de sistemas mecánicos y vibraciones, se pueden estudiar las oscilaciones y respuestas de sistemas elásticos.</li>
+                    <li>En el estudio de sistemas de comunicación y telecomunicaciones, se pueden analizar señales y su propagación en el tiempo y la frecuencia.</li>
+                </ul>
+                
+                <p>Estos ejemplos demuestran cómo la transformada de Laplace se aplica en una variedad de contextos para resolver problemas complejos y analizar sistemas dinámicos. Su versatilidad y capacidad para simplificar cálculos hacen que sea una herramienta esencial en la ingeniería y la física.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Transformada de Laplace Numérica y Computacional</h2>
+            <p>Si bien la transformada de Laplace tiene una definición integral precisa, su cálculo analítico puede ser complejo en algunos casos. Es por eso que las técnicas numéricas y las herramientas computacionales juegan un papel fundamental en la aplicación de la transformada de Laplace en problemas prácticos.</p>
+            <button class="button" onclick="toggleContent('laplace_numerical_computational_content')">Explorar más</button>
+            <div class="hidden-content" id="laplace_numerical_computational_content">
+                <h3>Aproximación Numérica de la Transformada de Laplace</h3>
+                <p>En situaciones en las que la transformada de Laplace no puede calcularse de manera analítica, las aproximaciones numéricas son útiles. Métodos como la discretización y la integración numérica permiten obtener una estimación de la transformada de Laplace mediante el uso de intervalos finitos y cálculos discretos.</p>
+                
+                <h3>Utilización de Herramientas Computacionales</h3>
+                <p>Las herramientas computacionales como Python y MATLAB ofrecen bibliotecas y funciones dedicadas al cálculo de la transformada de Laplace y su inversa. Estas herramientas facilitan el cálculo preciso y eficiente de la transformada de Laplace, incluso en funciones complejas. Los algoritmos y métodos implementados en estas bibliotecas automatizan los cálculos y reducen la posibilidad de errores.</p>
+                
+                <p>En Python, la biblioteca "SymPy" proporciona capacidades de cálculo simbólico, lo que permite trabajar con expresiones algebraicas. En MATLAB, las funciones como "laplace" y "ilaplace" permiten calcular la transformada de Laplace y su inversa.</p>
+                
+                <p>Estas herramientas computacionales no solo simplifican el proceso de cálculo, sino que también brindan visualización de resultados y facilitan la comparación entre soluciones en el dominio del tiempo y de la frecuencia. Esto es especialmente útil en la resolución de problemas prácticos y en la investigación científica.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Casos Especiales y Transformadas Relacionadas</h2>
+            <p>La transformada de Laplace tiene varias variantes y conexiones con otras transformadas integrales que amplían su aplicabilidad y versatilidad en diferentes contextos. Estos casos especiales y transformadas relacionadas brindan un enfoque más completo en el análisis de sistemas y fenómenos dinámicos.</p>
+            <button class="button" onclick="toggleContent('laplace_related_transforms_content')">Explorar más</button>
+            <div class="hidden-content" id="laplace_related_transforms_content">
+                <h3>Transformada de Laplace Unilateral y Bilateral</h3>
+                <p>La transformada de Laplace puede ser unilateral o bilateral, dependiendo de si se integra sobre un intervalo finito (unilateral) o sobre toda la línea real (bilateral). La transformada bilateral es la más comúnmente utilizada y se define para funciones que van desde menos infinito hasta más infinito. Por otro lado, la transformada unilateral se utiliza en casos donde la función es cero antes de cierto tiempo, y la integral se toma solo desde cero hasta más infinito.</p>
+                
+                <h3>Relación entre la Transformada de Laplace Bilateral y Fourier</h3>
+                <p>La transformada de Laplace bilateral y la transformada de Fourier están relacionadas. La transformada de Fourier se obtiene como una limitación de la transformada de Laplace cuando el parámetro complejo ss en la definición de la transformada de Laplace se vuelve puramente imaginario. En otras palabras, la transformada de Fourier es un caso especial de la transformada de Laplace cuando se analizan funciones en el dominio del tiempo que son periódicas.</p>
+                
+                <h3>Transformada de Laplace en Sistemas Discretos (Z-transform)</h3>
+                <p>En sistemas discretos, donde las señales y las funciones varían en intervalos discretos de tiempo, la Z-transform es una herramienta análoga a la transformada de Laplace. La Z-transform se utiliza para analizar sistemas en el dominio discreto y puede considerarse una extensión de la transformada de Laplace en este contexto. Al igual que la transformada de Laplace, la Z-transform permite analizar sistemas lineales e invariantes en el tiempo en el dominio de la frecuencia.</p>
+            </div>
+        </div>
+
+        
+        <div class="content">
+            <h2>Avanzando Más Allá de la Transformada de Laplace</h2>
+            <p>La transformada de Laplace es solo una de varias transformadas integrales que encuentran aplicación en el análisis matemático y científico. Al explorar más allá de la transformada de Laplace, se revelan otras herramientas poderosas y conexiones interesantes con diversas áreas de las matemáticas y la física.</p>
+            <button class="button" onclick="toggleContent('beyond_laplace_transform_content')">Explorar más</button>
+            <div class="hidden-content" id="beyond_laplace_transform_content">
+                <h3>Otros Tipos de Transformadas Integrales</h3>
+                <p>Además de la transformada de Laplace, existen otras transformadas integrales que ofrecen enfoques alternativos para resolver problemas matemáticos y científicos. Por ejemplo, la transformada de Mellin y la transformada de Hankel son transformadas integrales que se utilizan en contextos específicos, como el análisis de funciones especiales y la solución de ecuaciones diferenciales en coordenadas cilíndricas y esféricas.</p>
+                
+                <h3>Aplicaciones en Problemas de Valores Iniciales y de Frontera</h3>
+                <p>La transformada de Laplace tiene aplicaciones amplias en la resolución de problemas de valores iniciales y de frontera en ecuaciones diferenciales. Al trasladar ecuaciones diferenciales al dominio de la frecuencia utilizando la transformada de Laplace, es posible encontrar soluciones a problemas que involucran condiciones iniciales y condiciones de frontera de manera más sistemática y eficiente.</p>
+                
+                <h3>Conexiones con Otras Áreas de las Matemáticas y la Física</h3>
+                <p>La transformada de Laplace tiene conexiones profundas con diversas áreas de las matemáticas y la física. En matemáticas, se relaciona con el análisis funcional, la teoría de ecuaciones diferenciales y la teoría de sistemas lineales. En física, la transformada de Laplace se aplica en campos como la mecánica cuántica, la teoría de control, la termodinámica y la teoría de señales.</p>
+            </div>
+        </div>
+        <div class="content">
+            <h2>Transformada de Laplace e Inversa de Laplace</h2>
+            <p>Ingresa una función para calcular su Transformada de Laplace o su Transformada Inversa de Laplace:</p>
+            <form id="laplace_form">
+                {% csrf_token %}
+                <label for="function_input">Función:</label>
+                <input type="text" id="function_input" name="function_input" placeholder="Ejemplo: f(t)"><br>
+                <button type="button" class="button" onclick="calcularTransformadaLaplace()">Calcular Transformada de Laplace</button>
+                <button type="button" class="button" onclick="calcularTransformadaInversa()">Calcular Transformada Inversa de Laplace</button>
+            </form>
+            <div class="resultado" id="derivative_result">
+                <!-- Aquí se mostrará el resultado de la transformada calculada -->
+            </div>
+        </div>
+        
+        <script>
+            $(document).ready(function() {
+        $('#laplace_form').on('submit', function(event) {
+            event.preventDefault();  // Evitar la recarga de la página
+
+            // Obtener los valores del formulario
+            var formData = $(this).serialize();
+
+            // Realizar la solicitud AJAX al servidor para la transformada de Laplace
+            $.ajax({
+                type: 'POST',
+                url: '{% url "transformada_laplace" %}', // Reemplaza con el nombre correcto de la vista
+                data: formData,
+                success: function(data) {
+                    console.log(data); // Para depuración en la consola
+                    var resultDiv = document.getElementById("derivative_result");
+                    // Modificar esta parte para mostrar los resultados adecuadamente
+                    resultDiv.innerHTML = "<p>Transformada de Laplace: " + data.laplace_transform[0].toString() + "</p>" +
+                                          "<p>Transformada Inversa de Laplace: " + data.inverse_laplace_transform[0].toString() + "</p>";
+                },
+                error: function() {
+                    var resultDiv = document.getElementById("derivative_result");
+                    resultDiv.innerHTML = "<p>Error: Ingresa una función válida.</p>";
+                }
+            });
+        });
+    });
+        
+            function calcularTransformadaLaplace() {
+                var functionInput = document.getElementById("function_input").value;
+        
+                // Reemplaza 'URL_DE_TU_VISTA_LAPLACE' con la URL correcta de tu vista Django que maneja la solicitud AJAX para la transformada de Laplace
+                var urlLaplace = '';
+        
+                // Obtén el token CSRF de tu template y reemplázalo si es necesario
+                var csrfToken = Cookies.get('csrftoken');
+        
+                $.ajax({
+                    type: "POST",
+                    url: urlLaplace,
+                    data: {
+                        csrfmiddlewaretoken: csrfToken,
+                        function_input: functionInput
+                    },
+                    success: function(response) {
+                        console.log(response); 
+                        var resultDiv = document.getElementById("derivative_result");
+                        // Modifica esta parte para mostrar la transformada de Laplace en el resultado
+                        resultDiv.innerHTML = "<p>Transformada de Laplace: " + response.laplace_transform.toString() + "</p>";
+                    },
+                    error: function() {
+                        var resultDiv = document.getElementById("derivative_result");
+                        resultDiv.innerHTML = "<p>Error: Ingresa una función válida.</p>";
+                    }
+                });
+            }
+        
+            function calcularTransformadaInversa() {
+                var functionInput = document.getElementById("function_input").value;
+        
+                // Reemplaza 'URL_DE_TU_VISTA_INVERSA' con la URL correcta de tu vista Django que maneja la solicitud AJAX para la transformada inversa de Laplace
+                var urlInversa = '';
+        
+                // Obtén el token CSRF de tu template y reemplázalo si es necesario
+                var csrfToken = Cookies.get('csrftoken');
+        
+                $.ajax({
+                    type: "POST",
+                    url: urlInversa,
+                    data: {
+                        csrfmiddlewaretoken: csrfToken,
+                        function_input: functionInput
+                    },
+                    success: function(response) {
+                        console.log(response); 
+                        var resultDiv = document.getElementById("derivative_result");
+                        // Modifica esta parte para mostrar la transformada inversa de Laplace en el resultado
+                        resultDiv.innerHTML = "<p>Transformada Inversa de Laplace: " + response.inverse_laplace_transform.toString() + "</p>";
+                    },
+                    error: function() {
+                        var resultDiv = document.getElementById("derivative_result");
+                        resultDiv.innerHTML = "<p>Error: Ingresa una función válida.</p>";
+                    }
+                });
+            }
+        
+        </script>
+    {% endblock %}}

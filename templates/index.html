@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importancia de las Matemáticas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #35424a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #35424a;
+        }
+        p {
+            color: #666;
+        }
+        .button {
+            display: inline-block;
+            background-color: #35424a;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #1f2c32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>La Importancia de las Matemáticas</h2>
+            <p>Las matemáticas, conocidas como el "lenguaje universal", son fundamentales para comprender y abordar los desafíos de nuestro mundo moderno. A través de tres áreas clave, exploraremos cómo las matemáticas influyen en la vida cotidiana y en disciplinas tan diversas como la física, la ingeniería y la economía.</p>
+            <p>Comenzando con el concepto de derivadas parciales, aprenderemos cómo estas herramientas nos permiten analizar cómo las funciones cambian en relación con diferentes variables. Este enfoque se traduce en la modelación de fenómenos naturales y la toma de decisiones informadas en campos como la economía y la biología.</p>
+            <p>Continuando con la transformada de Laplace, descubriremos cómo esta poderosa herramienta nos permite analizar sistemas dinámicos y resolver ecuaciones diferenciales. Desde circuitos eléctricos hasta fenómenos de vibración, la transformada de Laplace es esencial en el mundo de la ingeniería y la física aplicada.</p>
+            <p>Finalmente, nos sumergiremos en la optimización de funciones, donde aprenderemos cómo encontrar los máximos y mínimos de una función. Desde el diseño de algoritmos hasta la toma de decisiones empresariales, la optimización juega un papel crucial en la eficiencia y la mejora continua.</p>
+            <a class="button" href="#" onclick="window.location.href='{% url 'derivadas_parciales' %}'">Explorar Derivadas Parciales</a>
+            <a class="button" href="{% url 'transformada_laplace' %}">Explorar Transformada de Laplace</a>
+            <a class="button" href="{% url 'optimizacion_funciones' %}">Explorar Optimización de Funciones</a>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

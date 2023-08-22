@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivadas Parciales - Página de Matemáticas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #35424a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #35424a;
+        }
+        p {
+            color: #666;
+        }
+        .button {
+            display: inline-block;
+            background-color: #35424a;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #1f2c32;
+        }
+        .hidden-content {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleContent(contentId) {
+            var content = document.getElementById(contentId);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Derivadas Parciales</h2>
+            
+        </div>
+        
+        <!-- Repite la estructura similar para las otras secciones -->
+        <div class="content">
+            <h2>Interpretación Geométrica y Aplicaciones</h2>
+            <p>Geométricamente, las derivadas parciales miden la pendiente de curvas de nivel en diferentes direcciones.</p>
+            <p>Se aplican en física, economía y más para modelar y analizar tasas de cambio.</p>
+            <button class="button" onclick="toggleContent('interpretacion_geom_aplicaciones_content')">Explorar más</button>
+            <div class="hidden-content" id="interpretacion_geom_aplicaciones_content">
+                <p>La "Interpretación Geométrica y Aplicaciones" de las derivadas parciales es una perspectiva fascinante que enriquece la comprensión de cómo estas derivadas afectan la geometría de una función y su relevancia en varios campos.</p>
+                <p>Desde una perspectiva geométrica, las derivadas parciales miden cómo cambia una función cuando te mueves a lo largo de las curvas de nivel en diferentes direcciones. Esencialmente, calculan la pendiente de estas curvas en una dirección específica, lo que proporciona información sobre cómo la función cambia en esa dirección particular.</p>
+                <p>Esto tiene aplicaciones significativas en diversos campos. En física, se utilizan para modelar fenómenos como la variación de temperaturas en un campo o la propagación de ondas. En economía, se aplican para analizar cómo cambian las variables económicas en respuesta a cambios en otras variables, como prever cómo cambios en la producción afectarán los precios y la demanda.</p>
+                <p>Además, en la ingeniería, se utilizan para optimizar procesos y diseños, como distribuir eficientemente recursos en redes eléctricas o determinar la forma óptima de una estructura.</p>
+                <p>En resumen, la interpretación geométrica y las aplicaciones de las derivadas parciales agregan una dimensión adicional a su comprensión y utilidad. Al entender cómo miden las pendientes de las curvas de nivel y cómo modelan tasas de cambio en diversas disciplinas, se aprecia la versatilidad y poder de este concepto matemático en el análisis y la resolución de problemas complejos.</p>
+            </div>
+            
+        </div>
+        <div class="content">
+            <h2>Cálculo de Derivadas Parciales: Ejemplos</h2>
+            <p>Ejemplo: \( f(x, y) = x^2 + 2xy + y^2 \).</p>
+            <p>Las derivadas parciales \( f_x = 2x + 2y \) y \( f_y = 2x + 2y \) indican simetría.</p>
+            <button class="button" onclick="toggleContent('calculo_derivadas_ejemplos_content')">Explorar más</button>
+            <div class="hidden-content" id="calculo_derivadas_ejemplos_content">
+                <p>En esta sección, exploraremos ejemplos concretos de cálculo de derivadas parciales y cómo aplicar este concepto en situaciones específicas.</p>
+                <p>Ejemplo: Consideremos la función \( f(x, y) = x^2 + 2xy + y^2 \). Esta función de dos variables es una herramienta ideal para ilustrar el cálculo de derivadas parciales. Calcularemos las derivadas parciales con respecto a \( x \) y \( y \) para comprender cómo cambia la función cuando modificamos estas variables.</p>
+                <p>Derivada parcial con respecto a \( x \) (\( f_x \)): Para calcular \( f_x \), derivamos \( f \) con respecto a \( x \) manteniendo \( y \) constante. Esto nos da \( f_x = 2x + 2y \). Interpretando esta derivada, vemos que \( f \) cambia en función de \( x \) y \( y \), lo que indica una cierta relación entre ambas variables.</p>
+                <p>Derivada parcial con respecto a \( y \) (\( f_y \)): De manera similar, derivamos \( f \) con respecto a \( y \) manteniendo \( x \) constante. Esto nos da \( f_y = 2x + 2y \), lo que muestra nuevamente la relación entre \( x \) e \( y \) en el cambio de \( f \).</p>
+                <p>Interpretación geométrica: Las derivadas parciales \( f_x \) y \( f_y \) miden cómo cambia \( f \) a lo largo de las curvas de nivel en diferentes direcciones. En este ejemplo, \( f_x \) y \( f_y \) son iguales, indicando simetría en la función con respecto a \( x \) e \( y \).</p>
+                <p>Aplicación en situaciones reales: Este cálculo de derivadas parciales tiene aplicaciones en diversas disciplinas. En física, se utilizarían para analizar cómo cambian propiedades físicas en sistemas dinámicos. En economía, podrían aplicarse para predecir cómo variaciones en ciertas variables económicas impactarán en los resultados económicos.</p>
+                <p>Los ejemplos concretos como este ayudan a desarrollar una comprensión sólida del cálculo de derivadas parciales y su utilidad en diferentes contextos.</p>
+            </div>
+            
+        </div>
+        <div class="content">
+            <h2>Ecuaciones Diferenciales Parciales</h2>
+            <p>Las derivadas parciales son esenciales para resolver ecuaciones diferenciales parciales (EDP).</p>
+            <p>Modelan sistemas dinámicos en varias dimensiones, presentes en física y mecánica cuántica.</p>
+            <button class="button" onclick="toggleContent('ecuaciones_diferenciales_content')">Explorar más</button>
+            <div class="hidden-content" id="ecuaciones_diferenciales_content">
+                <p>En esta sección, exploraremos cómo las derivadas parciales desempeñan un papel fundamental en la resolución de ecuaciones diferenciales parciales (EDPs) y cómo se aplican en el análisis de sistemas dinámicos.</p>
+                <p>Las ecuaciones diferenciales parciales (EDPs) son herramientas matemáticas vitales para describir fenómenos que varían en función de múltiples variables y el tiempo. Las derivadas parciales permiten transformar estas complejas relaciones en ecuaciones manejables. Así, las EDPs modelan problemas en física, ingeniería y más.</p>
+                <p>En la resolución de EDPs, las derivadas parciales permiten encontrar soluciones analíticas o numéricas. Similar a las derivadas ordinarias en ecuaciones diferenciales ordinarias, las derivadas parciales permiten descomponer problemas complejos en pasos más simples y comprensibles.</p>
+                <p>Además, las derivadas parciales desempeñan un rol crucial en el análisis de sistemas dinámicos. Estos sistemas cambian con el tiempo o en función de otras variables. En su estudio, las derivadas parciales permiten analizar cómo las variables evolucionan en relación con el tiempo y entre sí.</p>
+                <p>Comprender cómo cambian las variables en sistemas dinámicos es esencial en la predicción de comportamientos futuros y la optimización de procesos. Las derivadas parciales cuantifican tasas de cambio en múltiples dimensiones, lo que es fundamental para entender la evolución de sistemas complejos.</p>
+                <p>En resumen, en esta sección exploraremos el papel crucial de las derivadas parciales en la resolución de EDPs y su aplicación en el análisis de sistemas dinámicos en diversas disciplinas científicas y de ingeniería.</p>
+            </div>
+            
+        </div>
+        <div class="content">
+            <h2>Herramientas Computacionales y Visualización</h2>
+            <p>Las derivadas parciales pueden calcularse con herramientas como Python y MATLAB.</p>
+            <p>La visualización ayuda a comprender cambios en funciones multivariables.</p>
+            <button class="button" onclick="toggleContent('herramientas_visualizacion_content')">Explorar más</button>
+            <div class="hidden-content" id="herramientas_visualizacion_content">
+                <p>En esta sección, exploraremos cómo las herramientas computacionales y la visualización se convierten en poderosos aliados para calcular, comprender y aplicar las derivadas parciales en el análisis de sistemas complejos.</p>
+                <p>Las derivadas parciales pueden involucrar cálculos complejos, especialmente cuando se trata de funciones de múltiples variables. Las herramientas computacionales entran en juego al permitirnos realizar cálculos automatizados y precisos. Con software de cálculo simbólico o bibliotecas matemáticas en lenguajes de programación, calcular derivadas parciales se vuelve más eficiente y menos propenso a errores.</p>
+                <p>La visualización es una herramienta poderosa para entender conceptos matemáticos. En el contexto de derivadas parciales, la visualización nos permite observar cómo cambia una función en relación con múltiples variables. Los gráficos en dos o tres dimensiones revelan patrones y tendencias que las fórmulas pueden ocultar. Esta representación gráfica hace que los conceptos sean más accesibles y comprensibles.</p>
+                <p>En el análisis de sistemas complejos, las derivadas parciales son esenciales para desentrañar interacciones y comportamientos. Aquí es donde las herramientas computacionales brillan. Las simulaciones numéricas, habilitadas por software de simulación, nos permiten explorar cómo se propagan los cambios en las variables en todo el sistema. Combinado con la visualización tridimensional o animada, podemos observar la evolución de sistemas en función del tiempo y las variables.</p>
+                <p>En resumen, en esta sección exploraremos cómo las herramientas computacionales y la visualización se fusionan para mejorar nuestra capacidad de calcular, comprender y aplicar derivadas parciales en el análisis de sistemas complejos. Estas herramientas nos brindan una perspectiva integral y práctica para abordar desafíos matemáticos y científicos en entornos multidimensionales y dinámicos.</p>
+            </div>
+        </div>
+        <div>
+            <div class="content">
+                <h2>Resolución de Derivada Parcial</h2>
+                <form id="derivada_form">
+                    {% csrf_token %}
+                    <label for="derivada_input">Ingresa una derivada parcial:</label>
+                    <input type="text" id="derivada_input" name="derivada_input" placeholder="Ejemplo: 2*x + 3*y">
+                    <button type="button" class="button" onclick="resolverDerivada()">Resolver</button>
+                </form>
+                <div class="resultado" id="derivative_result">
+                    <!-- Aquí se mostrará el resultado de la derivada calculada -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        $('#derivada_form').on('submit', function(event) {
+            event.preventDefault();  // Evitar la recarga de la página
+    
+            // Obtener los valores del formulario
+            var formData = $(this).serialize();
+    
+            // Realizar la solicitud AJAX al servidor
+            $.ajax({
+                type: 'POST',
+                url: '{% url "derivadas_parciales" %}',  // Asegúrate de que esta sea la URL correcta
+                data: formData,
+                success: function(data) {
+                    // Actualizar la sección de resultados con los datos recibidos
+                    $('#derivative_result').html(data);
+                }
+            });
+        });
+    });
+    
+    function resolverDerivada() {
+        var derivadaInput = document.getElementById("derivada_input").value;
+    
+        // Reemplaza 'URL_DE_TU_VISTA' con la URL correcta de tu vista Django que maneja la solicitud AJAX
+        var url = '';
+    
+        // Obtén el token CSRF de tu template y reemplázalo si es necesario
+        var csrfToken = Cookies.get('csrftoken'); 
+        console.log(csrfToken);
+    
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                csrfmiddlewaretoken: csrfToken,
+                derivada_input: derivadaInput
+            },
+            success: function(response) {
+                var resultDiv = document.getElementById("derivative_result");
+                resultDiv.innerHTML = "<p>Derivada parcial con respecto a x: " + response.derivada_x.toString() + "</p>" +
+                                      "<p>Derivada parcial con respecto a y: " + response.derivada_y.toString() + "</p>";
+            },
+            error: function() {
+                var resultDiv = document.getElementById("derivative_result");
+                resultDiv.innerHTML = "<p>Error: Ingresa una derivada válida.</p>";
+            }
+        });
+    }
+    </script>
+    {% endblock %}

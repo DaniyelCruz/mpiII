@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivadas Parciales - Página de Matemáticas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #35424a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #35424a;
+        }
+        p {
+            color: #666;
+        }
+        .button {
+            display: inline-block;
+            background-color: #35424a;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #1f2c32;
+        }
+        .hidden-content {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleContent(contentId) {
+            var content = document.getElementById(contentId);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Optimización de Funciones</h2>
+        </div>
+
+        <div class="content">
+            <h2>Introducción a la Optimización</h2>
+            <p>La optimización desempeña un papel fundamental en la ingeniería de sistemas al abordar la toma de decisiones en situaciones complejas.</p>
+            <button class="button" onclick="toggleContent('content_1')">Leer más</button>
+            <div class="hidden-content" id="content_1">
+                <p>Este proceso se enfoca en identificar la mejor solución entre un conjunto de opciones disponibles. La esencia de la optimización radica en ajustar parámetros o variables para maximizar o minimizar una función objetivo que refleja un criterio particular, como el rendimiento deseado, el costo más bajo o cualquier otro factor relevante. Al explorar las posibles soluciones, se busca no solo encontrar resultados óptimos, sino también comprender los compromisos inherentes entre diferentes factores.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Fundamentos Matemáticos de la Optimización</h2>
+            <p>Una comprensión sólida de los conceptos matemáticos es esencial para realizar optimizaciones efectivas.</p>
+            <button class="button" onclick="toggleContent('content_2')">Leer más</button>
+            <div class="hidden-content" id="content_2">
+                <p>En este sentido, el cálculo diferencial e integral se convierte en la piedra angular. Las derivadas, que indican las tasas de cambio de las funciones, resultan cruciales para identificar los extremos locales. Los gradientes, conjuntos de derivadas parciales, ofrecen información sobre las direcciones en las cuales la función crece o decrece más rápido. Además, al lidiar con restricciones en la optimización, los multiplicadores de Lagrange permiten incorporar condiciones adicionales de manera efectiva.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Métodos Clásicos de Optimización</h2>
+            <p>Dentro del arsenal de enfoques para resolver problemas de optimización, los métodos clásicos juegan un papel fundamental.</p>
+            <button class="button" onclick="toggleContent('content_3')">Leer más</button>
+            <div class="hidden-content" id="content_3">
+                <p>El método de búsqueda exhaustiva, aunque puede ser ineficiente en problemas complejos debido a su evaluación sistemática de todas las soluciones posibles, sirve como punto de partida para comprender los límites del espacio de soluciones. El método del gradiente descendente aprovecha la dirección del gradiente para explorar la función objetivo y buscar extremos, aunque sufre de la limitación de quedar atrapado en óptimos locales. Por su parte, el algoritmo de Newton-Raphson combina información de primer y segundo orden para lograr una convergencia más rápida hacia los extremos locales de la función.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Optimización Heurística</h2>
+            <p>Cuando los métodos clásicos enfrentan limitaciones debido a la complejidad de los problemas, las técnicas heurísticas proporcionan enfoques prácticos y eficientes.</p>
+            <button class="button" onclick="toggleContent('content_4')">Leer más</button>
+            <div class="hidden-content" id="content_4">
+                <p>Los algoritmos genéticos, inspirados en la evolución biológica, emplean operadores de selección, cruza y mutación para evolucionar y mejorar gradualmente las soluciones. En contraste, la búsqueda tabú y la optimización por enjambre de partículas (PSO) emulan comportamientos colectivos para explorar el espacio de soluciones y descubrir extremos. Estas heurísticas permiten enfrentar problemas de gran escala y complejidad con una mayor eficacia.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Optimización en Sistemas de Ingeniería</h2>
+            <p>La optimización encuentra aplicaciones cruciales en la ingeniería de sistemas, donde su impacto se extiende a múltiples dominios.</p>
+            <button class="button" onclick="toggleContent('content_5')">Leer más</button>
+            <div class="hidden-content" id="content_5">
+                <p>En la ingeniería de software y hardware, se emplea para ajustar parámetros con el objetivo de lograr un rendimiento óptimo dentro de restricciones de recursos. En sistemas distribuidos, la optimización coordina componentes interconectados y facilita la toma de decisiones eficientes. La mejora continua de sistemas complejos, desde infraestructuras urbanas hasta redes de comunicación, depende en gran medida de la optimización para optimizar recursos y resultados.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Herramientas Computacionales y Software de Optimización</h2>
+            <p>La implementación efectiva de las técnicas de optimización requiere herramientas y software especializados.</p>
+            <button class="button" onclick="toggleContent('content_6')">Leer más</button>
+            <div class="hidden-content" id="content_6">
+                <p>Plataformas como MATLAB y Python ofrecen bibliotecas específicas para optimización, simplificando la implementación de algoritmos complejos. Estas herramientas proporcionan funciones para definir funciones objetivo, restricciones y métodos de optimización, reduciendo la barrera para desarrollar soluciones y analizar resultados. La capacidad de traducir conceptos matemáticos en implementaciones prácticas se mejora significativamente gracias a estas herramientas.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Optimización Multiobjetivo</h2>
+            <p>En muchos casos, los sistemas deben equilibrar múltiples objetivos que a menudo entran en conflicto entre sí.</p>
+            <button class="button" onclick="toggleContent('content_7')">Leer más</button>
+            <div class="hidden-content" id="content_7">
+                <p>La optimización multiobjetivo se concentra en encontrar soluciones que representen compromisos entre estos objetivos divergentes. Los métodos de Pareto, utilizados en esta área, permiten identificar la "frontera de Pareto", que reúne todas las soluciones no dominadas. La toma de decisiones basada en esta frontera implica considerar cuidadosamente el trade-off entre los diferentes objetivos y seleccionar la solución que mejor se adapte a las necesidades y restricciones específicas.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Aplicaciones Actuales y Desafíos</h2>
+            <p>La aplicación de la optimización abarca una amplia variedad de campos y sigue siendo relevante en la actualidad.</p>
+            <button class="button" onclick="toggleContent('content_8')">Leer más</button>
+            <div class="hidden-content" id="content_8">
+                <p>En el campo del aprendizaje automático, se utiliza para ajustar los parámetros de los modelos y mejorar su capacidad predictiva. En logística y gestión de cadenas de suministro, la optimización de rutas y la gestión de inventarios se traducen en una mayor eficiencia operativa. Sin embargo, persisten desafíos, como la convergencia a soluciones globales en problemas no convexos y la necesidad de abordar problemas de escalabilidad y optimización en tiempo real, especialmente en el contexto de sistemas en constante evolución y adaptación.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Optimización de funciones (Máximos y mínimos)</h2>
+            <p>Ingresa una función para calcular sus valores máximos y mínimos</p>
+            <form id="optimization_form">
+                {% csrf_token %}
+                <label for="function_input">Función:</label>
+                <input type="text" id="function_input" name="function_input" placeholder="Ejemplo: x**2 - 4*x + 4"><br>
+                <button type="submit" class="button">Calcular valores máximos y mínimos</button>
+            </form>
+            <div class="resultado" id="optimization_result">
+                <!-- Aquí se mostrarán los resultados de la optimización -->
+            </div>
+        </div>
+        
+        <script>
+        $(document).ready(function() {
+            $('#optimization_form').on('submit', function(event) {
+                event.preventDefault();
+        
+                var formData = $(this).serialize();
+        
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "optimizacion_funciones" %}',
+                    data: formData,
+                    success: function(data) {
+                        var resultHtml = "<p>Valor mínimo: " + data.valor_minimo + "</p>" +
+                                         "<p>Argumento mínimo: " + data.argumento_minimo + "</p>" +
+                                         "<p>Valor máximo: " + data.valor_maximo + "</p>" +
+                                         "<p>Argumento máximo: " + data.argumento_maximo + "</p>";
+                        $('#optimization_result').html(resultHtml);
+                    },
+                    error: function() {
+                        var resultDiv = document.getElementById("optimization_result");
+                        resultDiv.innerHTML = "<p>Error: Ingresa una función válida.</p>";
+                    }
+                });
+            });
+        });
+        </script>
+        
+            
+            
+            
+        
+    {% endblock %}
